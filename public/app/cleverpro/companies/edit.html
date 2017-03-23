@@ -1,0 +1,27 @@
+<br><br><br>
+<div class="w3-container w3-twothird w3-right w3-margin-top w3-border-0 w3-light-grey w3-card-4">
+	<h3 class="w3-center w3-wide">Update Company Details</h3>
+
+	<hr/>
+
+	<form class="w3-container w3-margin-top">
+
+	<label class="w3-label w3-text-grey"><b>Company Name</b></label>
+	<input class="w3-input w3-border-0" type="text" data-ng-model="vm.company.name">
+
+	<hr/>
+
+	<label class="w3-label w3-text-grey"><b>Company Description</b></label>
+	<textarea class="w3-border-0" rows="10" data-ng-model="vm.company.description" style="width:100%;">
+	</textarea>
+	
+	<hr/>
+
+	<div class="w3-btn-group">
+		<button class="w3-btn w3-blue w3-text-white w3-margin-bottom" data-ng-click="vm.save()" style="width:50%"><h4>Update</h4></button>
+		<button class="w3-btn w3-red w3-text-white w3-margin-bottom" data-ng-click="vm.cancel()" style="width:50%"><h4>Cancel</h4></button>
+	</div>
+	</form>
+</div>
+
+

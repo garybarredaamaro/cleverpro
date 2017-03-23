@@ -1,0 +1,55 @@
+<br><br><br>
+<div class="w3-container w3-margin-top w3-light-gray w3-twothird pull-right" style="background-color:light-grey;">
+	<table class="table package-table" style="table-layout:fixed;">
+		<tbody>
+			<tr class="w3-padding-16" style="background-color:#324ba0;color:white;">
+				<th colspan="2" style="text-align:left"><h4>{{vm.project.title}}</h4></th> 
+			</tr>
+
+
+			<tr class="w3-padding-16 w3-hover-light-grey" style="border-style:2px solid white;">
+				<tr>
+					<th>Project Status</th>
+					<td><button type="button" class="btn-status btn-info" disabled>{{vm.project.status}}</button></td>
+				</tr>
+				<tr>
+					<th>ECD (Estimated Completion Date)</th>
+					<td><b>{{vm.project.start_date | date}}</b> to <b>{{vm.project.end_date | date}}</b></td>
+				</tr> 
+				<th>Owned</th>
+				<td><b>{{vm.guest}}</b></td>
+
+			</tr>
+			<tr>
+				<th>Managed By</th>
+				<td><b>{{vm.project_manager}}</b></td>
+
+			</tr>
+			<tr>
+				<th>Status</th>
+				<td><b>Status is {{vm.project.status}}</b></td>
+
+			</tr> 
+	
+			<tr>
+				<tr class="w3-padding-16" style="background-color:#324ba0;color:white;">
+					<th colspan="2" style="text-align:left"><h6><b>Description</b></h6></th> 
+				</tr>
+
+
+				<tr class="w3-padding-16 w3-hover-light-grey" style="border-style:0px solid white;">
+					<tr>
+						<td colspan="2" style="word-wrap:break-word;height:150px;">
+							<textarea style="width:100%;height:100%;" disabled>{{vm.project.description}}</textarea>
+						</td>
+					</tr>
+
+
+				</tr> 
+
+
+
+
+
+
+			</div>

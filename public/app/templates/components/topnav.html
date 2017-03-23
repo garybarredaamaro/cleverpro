@@ -1,0 +1,7 @@
+<ul class="w3-navbar w3-light-grey">
+	<li><a href="#"><img src="./assets/images/logo.png" class="app-logo" alt="CleverPro Logo"></a></li>
+	<li class="w3-right" data-ng-hide="vm.user"><a ui-sref="home.signup">Sign up</a></li>
+	<li class="w3-right" data-ng-hide="vm.user"><a ui-sref="home.login">Login</a></li>
+	<li class="w3-right" data-ng-show="vm.user"><a ui-sref="home" data-ng-click="vm.logout()">Logout</a></li>
+	<li class="w3-right" data-ng-show="vm.user"><a ui-sref="welcome">Welcome {{vm.user.first_name}}</a></li>
+</ul>	

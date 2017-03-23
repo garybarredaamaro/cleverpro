@@ -1,0 +1,73 @@
+
+
+<div class="w3-container w3-twothird w3-right">
+	<form class="w3-container" name="myForm" data-ng-submit="vm.signup()" novalidate><br><br>
+		<p>{{vm.error}}</p><br><br>
+		<!-- 		<img src="./assets/images/cleverlocal-logo.png" class="app-about"><br><br> -->
+
+
+		<div class="w3-row w3-section">
+			<label class="w3-label w3-text-blue"><b><font color="red" size="4">*</font> First Name</b></label>
+			<div style="margin-bottom: 25px" class="input-group">
+				<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+				<input class="w3-input w3-border" type="text" data-ng-model="vm.owner.first_name" name="first_name" data-ng-minlength="2" data-ng-maxlength="100"required>
+			</div>
+
+			<span style="color: #B94A48;background-color: #F2DEDE;margin: 0 10px 15px 10px;list-style-type: disc;padding: 8px 35px 8px 30px;border: 2px solid #EED3D7;text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);border-radius: 4px;" data-ng-show="myForm.first_name.$error.required && !myForm.first_name.$pristine">Firstname is required</span>
+			
+			<span style="color: #B94A48;background-color: #F2DEDE;margin: 0 10px 15px 10px;list-style-type: disc;padding: 8px 35px 8px 30px;border: 2px solid #EED3D7;text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);border-radius: 4px;" data-ng-show="myForm.first_name.$error.minlength">Firstname is too short (25 - 100 characters needed)</span>
+			<span style=style="color: #B94A48;background-color: #F2DEDE;margin: 0 10px 15px 10px;list-style-type: disc;padding: 8px 35px 8px 30px;border: 2px solid #EED3D7;text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);border-radius: 4px;" data-ng-show="myForm.first_name.$error.maxlength">Firstname is too long (2 - 100 characters needed)</span>
+		</div>
+
+
+		<div class="w3-row w3-section">
+			<label class="w3-label w3-text-blue"><b><font color="red" size="4">*</font> Last Name</b></label>
+				<div style="margin-bottom: 25px" class="input-group">
+					<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+					<input class="w3-input w3-border" type="text" data-ng-model="vm.owner.last_name" name="last_name" data-ng-minlength="2" data-ng-maxlength="100" required>
+				</div>
+
+				<span style="color: #B94A48;background-color: #F2DEDE;margin: 0 10px 15px 10px;list-style-type: disc;padding: 8px 35px 8px 30px;border: 2px solid #EED3D7;text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);border-radius: 4px;" data-ng-show="myForm.last_name.$error.required && !myForm.last_name.$pristine">Lastname is required</span>
+
+				<span style="color: #B94A48;background-color: #F2DEDE;margin: 0 10px 15px 10px;list-style-type: disc;padding: 8px 35px 8px 30px;border: 2px solid #EED3D7;text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);border-radius: 4px;" data-ng-show="myForm.last_name.$error.minlength">Lastname is too short (25 - 100 characters needed)</span>
+				<span style=style="color: #B94A48;background-color: #F2DEDE;margin: 0 10px 15px 10px;list-style-type: disc;padding: 8px 35px 8px 30px;border: 2px solid #EED3D7;text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);border-radius: 4px;" data-ng-show="myForm.last_name.$error.maxlength">Lastname is too long (2 - 100 characters needed)</span>
+			</div>
+		<div class="w3-row w3-section">
+			<label class="w3-label w3-text-blue"><b><font color="red" size="4">*</font> Cellphone Number</b></label>
+				<div style="margin-bottom: 25px" class="input-group">
+					<span class="input-group-addon"><i class="glyphicon glyphicon-phone"></i></span>
+					<input class="w3-input w3-border" type="number" data-ng-model="vm.owner.cp_number" name="cp_number" max="99999999999" min="0" required>
+				</div>
+
+				<span style="color: #B94A48;background-color: #F2DEDE;margin: 0 10px 15px 10px;list-style-type: disc;padding: 8px 35px 8px 30px;border: 2px solid #EED3D7;text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);border-radius: 4px;" data-ng-show="myForm.cp_number.$error.required && !myForm.cp_number.$pristine">Cellphone number is required</span>
+
+				<span style="color: #B94A48;background-color: #F2DEDE;margin: 0 10px 15px 10px;list-style-type: disc;padding: 8px 35px 8px 30px;border: 2px solid #EED3D7;text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);border-radius: 4px;" data-ng-show="myForm.cp_number.$error.min">Cellphone number is too short</span>
+				<span style="color: #B94A48;background-color: #F2DEDE;margin: 0 10px 15px 10px;list-style-type: disc;padding: 8px 35px 8px 30px;border: 2px solid #EED3D7;text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);border-radius: 4px;" data-ng-show="myForm.cp_number.$error.max">Cellphone number is too long</span>
+		</div>
+
+				<label class="w3-label w3-text-blue"><font color="red" size="4">*</font> Username</b></label>
+				<div style="margin-bottom: 25px" class="input-group">
+					<span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+					<input class="w3-input w3-border" type="text" data-ng-model="vm.owner.email" required>
+				</div>
+				<label class="w3-label w3-text-blue"><b>Password</b></label>
+				<div style="margin-bottom: 25px" class="input-group">
+					<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+					<input class="w3-input w3-border" type="password" data-ng-model="vm.owner.password" required>
+				</div>
+				<label class="w3-label w3-text-blue"><b>Company Name</b></label>
+				<div style="margin-bottom: 25px" class="input-group">
+					<span class="input-group-addon"><i class="glyphicon glyphicon-tags"></i></span>
+					<input class="w3-input w3-border" type="text" data-ng-model="vm.owner.name" required>
+				</div>
+				<label class="w3-label w3-text-blue"><b>Company Description</b></label>
+				<div style="margin-bottom: 25px" class="input-group">
+					<!-- <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span> -->
+					<textarea rows="5" cols="100"type="text" data-ng-model="vm.owner.description" required>
+					</textarea>
+				</div>
+				<button class="w3-btn w3-indigo" data-ng-click="vm.signup()" data-toggle="modal" data-target="#exampleModal">Sign Up</button>
+				<button class="w3-btn w3-red" ui-sref="home.login">Already have an account?</button>
+			</form>
+		</div>
+

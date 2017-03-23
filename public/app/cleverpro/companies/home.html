@@ -1,0 +1,18 @@
+<br><br><br>
+<div class="w3-margin pull-right w3-twothird">
+  <ul class="w3-ul w3-border w3-center w3-hover-shadow">
+    <li class="w3-light-grey w3-xlarge w3-padding-32">About the Company 
+    	&nbsp; <a data-ng-show="vm.showEdit()" ui-sref="home.aboutthecompany-edit"><i class="fa fa-edit"></i></a>
+    </li>
+    
+    <li class="w3-padding-16">
+      <h2 class="w3-wide">{{vm.company.name}}</h2>
+      <span class="w3-opacity w3-left-align">
+      	<textarea rows="10" style="width:100%;" readonly>
+      	{{vm.company.description}}
+		</textarea>
+	</span>
+    </li>
+  </ul>
+</div>
+

@@ -1,0 +1,27 @@
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
+<div class="w3-container w3-twothird w3-right">
+    <form name="commentForm" data-ng-show="vm.showAddComment()">
+        <textarea rows="10" style="width:100%;" class="w3-input w3-border-0" placeholder="New Comment" required></textarea>
+        <br/>
+        <button class="btn btn-default" data-ng-disabled="commentForm.$invalid">Add Comment</button>
+    </form>
+    
+    <br/>
+    <br/>
+    <div class="panel-group">
+        <div class="panel panel-default" data-ng-repeat="comment in vm.comments">
+            <div class="panel-heading">
+                {{comment.name}} 
+                <span class="w3-badge w3-grey">{{comment.user_type}}</span> 
+                <span class="w3-right">{{comment.date}}</span>
+            </div>
+            <div class="panel-body">{{comment.message}}</div>
+        </div>
+    </div>
+</div>

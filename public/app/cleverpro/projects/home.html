@@ -1,0 +1,63 @@
+<br/><br/><br/>
+<div class="w3-container w3-margin-top w3-twothird pull-right"><br>
+    <a ui-sref="welcome.projects-add" data-ng-show="vm.showAddProject()">
+      <button type="button" class="btn-btn btn-primary">Add Project</button><br><br>
+  </a>
+  <tr>
+    
+    <input class="w3-input w3-border w3-margin-bottom" type="search" ng-model="q" placeholder="filter projects..." aria-label="filter friends" />
+    <h2 data-ng-show="vm.loading" class="w3-text-red"><center><i class="fa fa-spinner fa-spin" style="font-size:50px"></i></center></h2>
+
+</tr>
+<div class="isa_error" data-ng-show="vm.empty">
+   <i class="fa fa-times-circle"></i>
+   <font size="3px">No projects displayed</font>
+</div>
+<div data-ng-repeat="project in vm.projects | filter: q | orderBy: '-created_at'" data-ng-class="vm.project_color(project.status)" class="w3-container w3-section w3-leftbar w3-border-grey w3-padding-16">
+
+ <div class="row">
+    <div class="col-md-4">
+
+        <!-- START USERS ACTIVITY BLOCK -->
+        <div class="panel panel-default" style="width:300%;height:100%;">
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="col-md-7">
+                        <a href="">
+                            <img class="img-responsive" src="assets/images/cleverpro.jpg" alt="">
+                        </a>
+                    </div>
+                    <div class="col-md-5">
+                        <h3><b>PROJECT NAME: {{project.title}}<b></h3>
+
+                        <p>{{project.description}}</p>
+                        <p class="w3-opacity">ECD: {{project.start_date}} until {{project.end_date}}</p></span></a>
+                    </div>
+                </div>                                  </div>                             
+                <ul class="panel-controls" style="margin-top: 2px;">
+                    <li><a ui-sref="welcome.projects-progress({projectId: project.id})" class="panel-fullscreen"><span class="fa fa-bar-chart-o" data-toggle="tooltip" data-original-title="Share" style="color:indigo;"></span></a></li>
+                    <li><a ui-sref="welcome.projects-members({projectId: project.id})" class="panel-fullscreen"><span class="fa fa-users" style="color:indigo;"></span></a></li>
+                    <li><a ui-sref="welcome.modules({projectId: project.id})" class="panel-fullscreen"><span class="fa fa-folder" style="color:indigo;"></span></a></li>
+                    <li><a ui-sref="welcome.issues({projectId: project.id})" class="panel-refresh"><span class="fa fa-exclamation-circle" style="color:indigo;"></span></a></li>
+                    <li><a ui-sref="welcome.projects-details({projectId: project.id})" class="panel-collapse"><span class="fa fa-eye" style="color:green;" ></span></a></li>   
+                    <li><a data-ng-show="vm.showEditProject()" ui-sref="welcome.projects-edit({projectId: project.id})" class="panel-collapse"><span class="fa fa-pencil" style="color:orange;" ></span></a></li>
+                    <li><a data-ng-show="vm.showRemoveProject()" data-ng-click="vm.deleteProject(project)" class="panel-remove"><span class="fa fa-times" style="color:red;"></span></a></li>
+                </ul>   
+	</div>                                     
+            </li>                                        
+        </ul>                                    
+    </div>                                
+
+</div>
+<!-- END USERS ACTIVITY BLOCK -->
+</div>
+</div>
+</div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip({
+        placement : 'top'
+    });
+});
+</script>

@@ -1,0 +1,36 @@
+<div class="login-container" style="margin-top:10%;">
+            <div class="login-box animated fadeInDown">
+            	<div class="alert alert-danger" style="background:#FF8B8B;" role="alert" data-ng-show="vm.error">
+  					<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+  					<span class="sr-only">Error:</span>
+  					&nbsp;{{vm.error}}
+				</div>
+                <div class="login-logo"></div>
+                <div class="login-body">
+                    <div class="login-title"><strong>Welcome</strong>, Please login</div>
+                    <form class="form-horizontal" method="post">
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            <input type="text" class="form-control" placeholder="Username"  data-ng-model="vm.user.email" required/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            <input type="password" class="form-control" placeholder="Password" data-ng-model="vm.user.password" required/>
+                        </div>
+                    </div>
+                    <div class="form-group">				
+                        <div class="col-md-6">
+                            <button class="btn btn-info btn-block" data-ng-click="vm.login()">Login</button>
+                        </div>
+                    </div>
+                    </form>
+                </div>
+                <div class="login-footer">
+                    <div class="pull-right">
+                        &copy; 2017 CleverPro
+                    </div>
+                </div>
+            </div>
+            
+        </div>

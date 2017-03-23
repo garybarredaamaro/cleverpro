@@ -1,0 +1,75 @@
+<br><br><br>
+<div class="w3-container w3-margin-top w3-twothird pull-right">
+  <div class="w3-row w3-section" data-ng-show="vm.showAddMember()">
+      <div class="w3-col" style="width:50px">
+           <button type="button" class="btn-btn btn-primary" data-ng-disabled="vm.memberId == 0" data-ng-click="vm.addMember()">Add</button>
+      </div>
+        <div class="w3-rest">
+        <select data-ng-model="vm.memberId" class="w3-select w3-border w3-text-blue" ng-options="user.id as (user.last_name + ', ' + user.first_name) for user in vm.users | orderBy: '+last_name'">
+            <option  value="" disabled="">Select User</option>
+      </select> 
+      </div>
+  </div>
+  <table class="table package-table">
+    <tbody>
+      <tr >
+       <input class="w3-input w3-border w3-margin-bottom" type="search" ng-model="q" placeholder="filter members..." aria-label="filter friends" />
+
+      </tr>
+      <div class="isa_error" data-ng-show="vm.error">
+       <i class="fa fa-times-circle"></i>
+       <font size="3px">{{vm.error}}</font>
+     </div>
+     <div class="isa_success" data-ng-show="vm.error1">
+     <i class="fa fa-check"></i>
+       <font size="3px">{{vm.error1}}</font>
+     </div>
+      <tr class="w3-padding-16" style="background-color:#324ba0;color:white;">
+        <th>Last Name</th>
+        <th>First Name</th>
+<!--         <th>Position</th> -->
+        <th colspan="2"><center>Action</center> </th>
+        
+      </tr>
+
+
+      <tr class="w3-padding-16 w3-hover-light-grey" data-ng-animate="'animate'"data-ng-repeat="member in vm.members | filter: q">
+
+        <td><b>{{member.last_name}}</b></td>
+        <td><b>{{member.first_name}}</b></td>
+     <!--    <td><b>{{member.user_type_id}}</b></td> -->
+          <td>
+            <a ui-sref="welcome.users-details({userId: member.id})">
+              <button type="button" class="btn-proj-members btn-success">View</button>
+            </a>
+          </td>
+            <td>
+               <a data-ng-show="vm.showRemoveMember()" data-ng-click="vm.deleteMember(member)">
+                <button type="button" class="btn-proj-members btn-danger">Remove</button>
+              </a>
+            </td>
+           </tr>
+           <tr>
+</div>
+
+<!-- Modal -->
+              <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal" class="modal fade">
+                  <div class="modal-dialog" >
+                      <div class="modal-content">
+                          <div class="modal-header">
+                              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                              <h4 class="modal-title">Confirm to delete user</h4>
+                          </div>
+                          <div class="modal-body">
+                              <p>Are you sure you want to remove user?</p> 
+                          </div>
+                          <div class="modal-footer">
+                            <a data-ng-click="vm.deleteMember(vm.selectedUser)">
+                              <button data-dismiss="modal" class="btn btn-primary" type="button">Yes</button>
+                            </a>
+                              <button class="btn btn-primary" type="button" data-dismiss="modal" aria-hidden="true">No</button>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <!-- modal -->

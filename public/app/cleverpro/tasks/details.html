@@ -1,0 +1,58 @@
+<br><br><br>
+<div class="w3-container w3-margin-top w3-twothird pull-right">
+
+  <table class="table package-table">
+    <tbody>
+      <tr class="w3-padding-16" style="background-color:#324ba0;color:white;">
+        <th colspan="4">Task Details</th>	
+      </tr>
+
+
+      <tr class="w3-padding-16 w3-hover-light-grey" style="border-style:2px solid white;">
+      	<tr>
+      		<th colspan="2">Task Title</th>
+        	<td><b> {{vm.task.title}}</b></td>
+        	<th colspan="2"></th>
+        </tr>
+        <tr>
+        	<th colspan="2">Description</th>
+        	<td><b>{{vm.task.description}}</b></td>
+        	<th colspan="2"></th>
+        </tr>
+         <tr>
+        	<th colspan="2">Status</th>
+        	<td><button type="button" class="btn btn-default" disabled>{{vm.task.status}}</button></b>
+	    	</td>
+        	<th colspan="2"></th>
+        </tr>
+        <tr>
+        	<th colspan="2">Start Date</th>
+        	<td><b>{{vm.task.start_date | date}}</b></td>
+        	<th colspan="2"></th>
+        </tr>	
+        <tr>
+        	<th colspan="2">End Date</th>
+        	<td><b>{{vm.task.end_date | date}}</b></td>
+        	<th colspan="2"></th>
+        </tr>	
+      </tr>	
+     
+         <!--  <td >
+            <a ui-sref="welcome.tasks-details({taskId: task.id})">
+              <button type="button" class="btn-proj-members btn-success">Details</button>
+            </a>
+          </td>
+
+          <td >
+            <a data-ng-show="vm.showEditModule()" ui-sref="welcome.tasks-details({taskId: task.id})">
+              <button type="button" class="btn-proj-members btn-warning">Update</button>
+            </a>
+          </td>
+            <td>
+              <a ui-sref="welcome.tasks-details({taskId: task.id})">
+                <button type="button" class="btn-proj-members btn-danger">Delete</button>
+              </a>
+            </td> -->
+
+          
+</div>

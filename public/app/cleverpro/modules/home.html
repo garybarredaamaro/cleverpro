@@ -1,0 +1,87 @@
+<br><br><br>
+<div class="w3-container w3-margin-top w3-twothird pull-right">
+
+  <div class="w3-col" style="width:50px">
+    <a data-ng-show="vm.showAddModule()" ui-sref="welcome.modules-add({projectId: vm.project.id})">
+      <button type="button" class="btn-btn btn-primary">Add</button>
+    </a>
+  </div>
+
+  <div class="w3-rest">
+    <input class="w3-input w3-border w3-margin-bottom" type="search" ng-model="q" placeholder="filter modules..." aria-label="filter friends" />
+
+    <h2 data-ng-hide="vm.modules.length" class="w3-text-red"><center><i class="fa fa-spinner fa-spin" style="font-size:50px"></i></center></h2>
+  </div>
+  
+  <!-- <div class="isa_error" data-ng-show="vm.empty">
+   <i class="fa fa-times-circle"></i>
+   <font size="3px">No projects displayed</font>
+ </div> -->
+ <table class="table package-table">
+  <tbody>
+    <tr class="w3-padding-16" style="background-color:#324ba0;color:white;">
+      <th>Module Name</th>
+      <th>Start Date</th>
+      <th>End Date</th>
+      <th>Status</th>
+      <th colspan="4"><center>Action</center> </th>
+
+    </tr>
+
+
+    <tr class="w3-padding-16 w3-hover-light-grey" data-ng-animate="'animate'"data-ng-repeat="module in vm.modules | filter: q">
+
+      <td><b>{{module.title}}</b></td>
+      <td><b>{{module.start_date | date}}</b></td>
+      <td><b>{{module.end_date | date}}</b></td>
+      <td><b>{{module.status}}</b></td>
+      <td >
+        <a ui-sref="welcome.modules-details({moduleId: module.id})">
+          <button type="button" class="btn-proj-members btn-success">Details</button>
+        </a>
+      </td>
+      <td >
+        <a  ui-sref="welcome.tasks({moduleId: module.id})">
+          <button type="button" class="btn-proj-members btn-info">Tasks</button>
+        </a>
+      </td>
+      <td >
+        <a data-ng-show="vm.showEditModule()" ui-sref="welcome.modules-edit({moduleId: module.id})">
+          <button type="button" class="btn-proj-members btn-warning">Update</button>
+        </a>
+      </td>
+      <td>
+       <a data-ng-show="vm.showRemoveModule()" data-ng-click="vm.deleteModule(module)">
+        <button type="button" class="btn-proj-members btn-danger">Delete</button>
+      </a>
+    </td>
+  </tr>
+  <tr>
+  </div>
+
+  <!-- Modal -->
+  <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal" class="modal fade">
+    <div class="modal-dialog" >
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title">Confirm to delete module</h4>
+        </div>
+        <div class="modal-body">
+          <p>Are you sure you want to delete module?</p> 
+        </div>
+        <div class="modal-footer">
+
+          <button 
+          data-dismiss="modal" 
+          data-ng-click="vm.deleteModule(vm.selectedModule)" 
+          class="btn btn-primary" 
+          type="button">Yes
+        </button>
+
+        <button class="btn btn-primary" type="button" data-dismiss="modal" aria-hidden="true">No</button>
+      </div>
+    </div>
+  </div>
+</div>
+              <!-- modal -->

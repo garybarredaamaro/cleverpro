@@ -1,0 +1,95 @@
+<br/><br/><br/>
+<div class="w3-container w3-card-4 w3-white w3-margin w3-twothird w3-right" style=".w3-col.m8, .w3-twothird:85%;">
+    
+  <h3 class="w3-center w3-wide">Add New User</h3>
+  <form class="w3-container" name="myForm" data-ng-submit="vm.addUser()" novalidate><br>
+    <p>{{vm.error}}</p>
+    <!-- <img src="./assets/images/cleverlocal-logo.png" class="app-about"><br><br> -->
+    <div class="div-container">
+      <div class="left">
+        <label class="w3-label w3-text-blue"><b><font color="red" size="4">*</font> Last Name</b></label>
+
+        <div style="margin-bottom: 25px" class="input-group">
+          <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+          <input data-ng-model="vm.new_user.last_name" class="w3-input w3-border" style="width:90%;" name="last_name" type="text" placeholder="Last Name" required data-ng-maxlength="20">
+        </div>
+        <span style="color:red" data-ng-show="myForm.last_name.$error.required && !myForm.last_name.$pristine"><b><font size="1.5">Last Name is required</font><b></span>
+        <span style="color:red" data-ng-show="myForm.last_name.$error.maxlength"><b><font size="1.5">Last Name is too long (20 characters maximum)</font></b></span>
+
+      </div>
+
+      <div class="right">
+        <label class="w3-label w3-text-blue"><b><font color="red" size="4">*</font> First Name</b></label>
+        <div style="margin-bottom: 25px" class="input-group">
+          <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+          <input data-ng-model="vm.new_user.first_name" class="w3-input w3-border" style="width:90%;" name="first_name" type="text" placeholder="First Name" required data-ng-maxlength="20">
+        </div>
+        <span style="color:red;" data-ng-show="myForm.first_name.$error.required && !myForm.first_name.$pristine"><b><font size="1.5">First Name is required</font><b></span>
+
+        <span style="color:red;" data-ng-show="myForm.first_name.$error.maxlength"><b><font size="1.5">First is too long (20 characters maximum)</font></b></span>
+      </div>
+    </div>
+    <div class="div-container">
+      <label class="w3-label w3-text-blue" style="margin-top:8px;"><b><font color="red" size="4">*</font> Cellphone Number</b>
+        <div style="margin-bottom: 25px" class="input-group">
+          <span class="input-group-addon"><i class="glyphicon glyphicon-phone"></i></span>
+          <input data-ng-model="vm.new_user.cp_number" class="w3-input w3-border" style="width:95%;"name="cp_number" type="number" min="0" placeholder="Cellphone Number" required data-ng-maxlength="11" data-ng-minlength="11">
+        </div>
+
+        <span style="color:red;" data-ng-show="myForm.cp_number.$error.required && !myForm.cp_number.$pristine"><b><font size="1.5">Contact number is required</font><b></span>
+        <span style="color:red;" data-ng-show="myForm.cp_number.$error.maxlength"><b><font size="1.5">Contact number is too long</font></b></span>
+        <span style="color:red;" data-ng-show="myForm.cp_number.$error.minlength"><b><font size="1.5">Reminder: Must enter 11 digits only</font></b></span>
+      </div>
+
+      <div class="div-container">
+        <label class="w3-label w3-text-blue"><b><font color="red" size="4">*</font> Username</b></label>
+        <div style="margin-bottom: 25px" class="input-group">
+          <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+          <input data-ng-model="vm.new_user.email" data-ng-blur="existUsername(myForm)" style="width:95%;" class="w3-input w3-border" name="email" type="text" placeholder="Username" required data-ng-maxlength="25" data-ng-minlength="2">
+        </div>
+
+        <span style="color:red;" data-ng-show="myForm.email.$error.required && !myForm.email.$pristine"><b><font size="1.5">Username number is required</font><b></span>
+        <span style="color:red;" data-ng-show="myForm.email.$error.maxlength"><b><font size="1.5">Username is too long (2-25 characters only)</font></b></span>
+        <span style="color:red;" data-ng-show="myForm.email.$error.minlength"><b><font size="1.5">Username is too short (2-25 characters only)</font></b></span>
+      </div>
+
+      <div class="div-container">
+        <label class="w3-label w3-text-blue"><b><font color="red" size="4">*</font> Password</b></label>
+        <div style="margin-bottom: 25px" class="input-group">
+          <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+          <input data-ng-model="vm.new_user.password" style="width:95%;" class="w3-input w3-border" name="password" type="password" placeholder="Password"required data-ng-maxlength="25" data-ng-minlength="4">
+        </div>
+
+        <span style="color:red;" data-ng-show="myForm.password.$error.required && !myForm.password.$pristine"><b><font size="1.5">Password is required</font><b></span>
+        <span style="color:red;" data-ng-show="myForm.password.$error.maxlength"><b><font size="1.5">Password is too long (4-25 characters only)</font></b></span>
+        <span style="color:red;" data-ng-show="myForm.password.$error.minlength"><b><font size="1.5">Password is too short (4-25 characters only)</font></b></span>
+      </div>
+
+        <div class="div-container">
+      <label class="w3-label w3-text-blue"><b><font color="red" size="4">*</font> Select User Type</b></label>
+      <select data-ng-model="vm.new_user.user_type_id" style="width:95%;" class="w3-select w3-border w3-text-grey" ng-options="user_type.id as user_type.name for user_type in vm.user_types | filter: vm.validUserType">
+        <option  value="" disabled="">Select User Type</option>
+      </select> <br><br>
+      <div class="w3-btn-group">
+        <button type="submit" class="w3-btn w3-blue w3-text-white w3-margin-bottom" style="width:50%" data-toggle="modal" href="login.html#myModal" data-ng-disabled="myForm.$invalid"><h4>Save</h4></button>
+        <button class="w3-btn w3-red w3-text-white w3-margin-bottom" data-ng-click="vm.cancel()" style="width:50%"><h4>Cancel</h4></button>
+      </div>
+
+  </div>
+
+      <!-- Modal -->
+              <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal" class="modal fade">
+                  <div class="modal-dialog" >
+                      <div class="modal-content">
+                          <div class="modal-header">
+                              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                          </div>
+                          <div class="modal-body">
+                              <h4>USER SUCCESSFULLY ADDED</h4> 
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <!-- modal -->
+
+

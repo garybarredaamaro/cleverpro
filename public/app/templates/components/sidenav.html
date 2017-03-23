@@ -1,0 +1,161 @@
+<style>
+
+/* define a fixed width for the entire menu */
+.navigation {
+  width: 100%;
+}
+
+/* reset our lists to remove bullet points and padding */
+.mainmenu, .submenu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* make ALL links (main and submenu) have padding and background color */
+.mainmenu a {
+  display: block;
+  background-color:
+  text-decoration: none;
+  padding: 10px;
+  font-color: black;
+}
+
+/* add hover behaviour */
+.mainmenu a:hover {
+    background-color: white;
+}
+
+
+/* when hovering over a .mainmenu item,
+  display the submenu inside it.
+  we're changing the submenu's max-height from 0 to 200px;
+*/
+
+.mainmenu li:hover .submenu {
+  display: block;
+  max-height: 200px;
+}
+
+/*
+  we now overwrite the background-color for .submenu links only.
+  CSS reads down the page, so code at the bottom will overwrite the code at the top.
+*/
+
+.submenu a {
+  background-color: #324ba0;
+}
+
+/* hover behaviour for links inside .submenu */
+.submenu a:hover {
+  background-color:#324ba0;
+  color:white
+}
+
+/* this is the initial state of all submenus.
+  we set it to max-height: 0, and hide the overflowed content.
+*/
+.submenu {
+  overflow: hidden;
+  max-height: 0;
+  -webkit-transition: all 0.5s ease-out;
+}
+fa-user a:hover{
+   color: black;
+}
+
+<!-- Toogle CSS-->
+#A, #B {
+    position: absolute;
+}
+#A {
+    top: 0px;
+    width: 200px;
+    bottom: 0px;
+    background:orange;
+}
+#B {
+    top: 0px;
+    left: 200px;
+    right: 0;
+    bottom: 0px;
+    background:green;x`
+}
+
+
+</style>
+<header class="header black-bg" data-ng-show="vm.isUserLoggedin()">
+    <!--logo start-->
+    <!-- Avatar image in top left corner -->
+    <div class="page-content">
+      <img src="./assets/images/logo.png" class="app-logo" style="width:10%;"alt="  CleverPro Logo">
+    </div>
+    
+</header>
+<aside>
+  <div id="sidebar"  class="nav-collapse" data-ng-show="vm.isUserLoggedin()" style="margin-left:-9%;width:15%;" >
+    <!-- sidebar menu start-->
+<ul class="sidebar-menu" id="nav-accordion">
+          <a href="#" class="x-navigation-control"></a>
+      <p class="centered" data-ng-show="vm.isUserLoggedin()"><a ui-sref="welcome.myprofile"><img src="assets/images/user.png" data-ng-show="vm.isUserLoggedin()" class="img-circle" width="60"></a></p>
+
+      <h5 class="centered" data-ng-show="vm.isUserLoggedin()">{{vm.user.last_name}}, {{vm.user.first_name}}</h5>
+      <h5 class="centered" data-ng-show="vm.isUserLoggedin()">as {{vm.user.user_type}}</h5>
+<br><br>
+<nav class="navigation">
+  <ul class="mainmenu">
+    <li><a class="w3-hover-light-gray"ui-sref="welcome.users" data-ng-show="vm.isUserLoggedin() && vm.showUsers()">
+          <i class="fa fa-users" style="color:white;margin-left:10%;"></i>
+          <span>&nbsp;&nbsp;&nbsp;&nbspUSERS</span>
+        </a></a></li>
+
+    <li><a class="w3-hover-light-grey" ui-sref="welcome.projects" data-ng-show="vm.isUserLoggedin()">
+          <i class="fa fa-product-hunt" style="color:white;margin-left:10%;"></i>
+          <span>&nbsp;&nbsp;&nbsp;&nbsp;PROJECTS</span>
+        </a></li>
+    <li><a class="w3-hover-light-grey" a href="" data-ng-show="vm.isUserLoggedin() && vm.showMyTasks()">
+          <i class="fa fa-tasks" style="color:white;margin-left:10%;"></i>
+          <span>&nbsp;&nbsp;&nbsp;&nbspTASKS</span>
+        </a>
+      <ul class="submenu">
+        <li><a class="w3-hover-light-grey" ui-sref="welcome.mytasks" data-ng-show="vm.isUserLoggedin() && vm.showMyTasks()">
+          <i class="glyphicon glyphicon-list"style="color:white;margin-left:20%;"></i>
+          <span>&nbsp;&nbsp;&nbsp;&nbspMY TASKS</span>
+        </a></li>
+        <li> <a class="w3-hover-light-grey" ui-sref="welcome.myissues" data-ng-show="vm.isUserLoggedin() && vm.showMyIssues()"> 
+          <i class="glyphicon glyphicon-exclamation-sign" style="color:white;margin-left:20%;"></i>
+          <span>&nbsp;&nbsp;&nbsp;&nbspMY ISSUES</span>
+        </a></li>
+        <li> <a class="w3-hover-light-grey" ui-sref="welcome.test" data-ng-show="vm.isUserLoggedin() && vm.showMyIssues()"> 
+          <i class="glyphicon glyphicon-exclamation-sign" style="color:white;margin-left:20%;"></i>
+          <span>&nbsp;&nbsp;&nbsp;&nbspTest Automation</span>
+        </a></li>
+        </a></li>
+        <li><a href="">  NEW ISSUES</a></li>
+        <li><a href="">  CLOSED ISSUES</a></li>
+        <li><a href="">  RETURNED ISSUES</a></li>
+      </ul>
+    </li>
+    <li> <a class="w3-hover-light-grey " ui-sref="welcome.myprofile" data-ng-show="vm.isUserLoggedin()"> 
+          <i class="glyphicon glyphicon-exclamation-sign" style="color:white;margin-left:10%;"></i>
+          <span>&nbsp;&nbsp;&nbsp;&nbspMY PROFILE</span>
+        </a></li>
+    <li><a class="w3-hover-light-grey" ui-sref="home.aboutthecompany" data-ng-show="vm.isUserLoggedin()">
+          <i class="fa fa-home" style="color:white;margin-left:10%;"></i>
+          <span>&nbsp;&nbsp;&nbsp;&nbspABOUT THE COMPANY</span>
+        </a></li>
+   <li><a class="w3-hover-light-grey" ui-sref="home.howto" data-ng-show="vm.isUserLoggedin()">
+          <i class="fa fa-question" style="color:white;margin-left:10%;"></i>
+          <span>&nbsp;&nbsp;&nbsp;&nbspHelp [?]</span>
+        </a></li>
+    <li><a class="w3-hover-light-grey" ui-sref="home" data-ng-click="vm.logout()" data-ng-show="vm.isUserLoggedin()">
+          <i class="glyphicon glyphicon-off" style="color:red;margin-left:10%;"></i>
+          <span>&nbsp;&nbsp;&nbsp;&nbspLOG OUT</span>
+        </a></li>
+<li> <a class="w3-hover-light-grey" ui-sref="home.login" data-ng-hide="vm.isUserLoggedin()">
+          <i class="glyphicon glyphicon-log-in" style="color:red;margin-left:10%;"></i>
+          <span>&nbsp;&nbsp;&nbsp;&nbspLOG IN</span>
+        </a></li>
+  </ul>
+</nav>
+
